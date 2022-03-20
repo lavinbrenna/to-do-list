@@ -1,0 +1,16 @@
+
+@{
+  Layout = "_Layout";
+}
+@model ToDoList.Models.Category
+<h1>Add a category</h1>
+<p>Add a category here:</p>
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.Name)
+  @Html.TextBoxFor(model => model.Name)
+  <input type="submit" value="Add new category" />
+}
+
+<p>@Html.ActionLink("Home", "Index", "Home")</p>
+<p>@Html.ActionLink("Categories", "Index", "Categories")</p>

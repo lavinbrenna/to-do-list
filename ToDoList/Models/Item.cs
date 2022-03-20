@@ -1,23 +1,15 @@
 using System.Collections.Generic;
-
 namespace ToDoList.Models
+
 {
   public class Item
   {
-    public string Description {get; set;}
-    private static List<Item> _instances = new List<Item> {};
-    public Item(string description)
+    public Item()
     {
-      Description = description;
-      _instances.Add(this);
+      this.JoinEntities = new HashSet<CategoryItem>();
     }
-    public static List<Item> GetAll()
-    {
-      return _instances;
-    }
-    public static void ClearAll()
-    {
-      _instances.Clear();
-    }
+    public int ItemId{get;set;}
+    public string Description {get;set;}
+    public virtual ICollection<CategoryItem> JoinEntities {get;}
   }
 }
